@@ -7,7 +7,7 @@ export default function Navbar() {
     const [show, setShow] = useState(false)
 
     return (
-        <nav className="navbar">
+      <nav className="navbar">
         <div className="nav-center">
           <div className="nav-header">
             <Link to="/">
