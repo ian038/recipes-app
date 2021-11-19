@@ -1,11 +1,10 @@
 import React from 'react'
 import Layout from "../components/Layout"
-import { StaticImage } from "gatsby-plugin-image"
 
-export default function about() {
+export default function tags() {
     return (
         <Layout>
-            About page
+            Tags
         </Layout>
     )
 }
