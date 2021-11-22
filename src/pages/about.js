@@ -31,10 +31,29 @@ export default function about({ data: { allContentfulRecipe: { nodes: recipes }}
                 />
                 </section>
                 <section className="featured-recipes">
-                <h5>Look at this Awesomesouce!</h5>
+                <h5>Look at this Awesomeness!</h5>
                 <RecipesList recipes={recipes} />
                 </section>
             </main>
         </Layout>
     )
 }
+
+export const query = graphql`
+  {
+    allContentfulRecipe(
+      sort: { fields: title, order: ASC }
+      filter: { featured: { eq: true } }
+    ) {
+      nodes {
+        id
+        title
+        cookTime
+        prepTime
+        image {
+          gatsbyImageData(layout: CONSTRAINED, placeholder: BLURRED)
+        }
+      }
+    }
+  }
+`
