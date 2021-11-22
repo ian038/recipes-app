@@ -4,17 +4,21 @@
  * See: https://www.gatsbyjs.com/docs/gatsby-config/
  */
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
  module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: "Simply Recipes",
-    description: "Nice and clean recipes site",
-    author: "@johnsmilga",
-    person: { name: "john", age: 32 },
+    title: "Recipes App",
+    description: "Simple and clean recipes site",
+    author: "@ianphua",
+    person: { name: "ian", age: 25 },
     simpleData: ["item 1", "item 2"],
     complexData: [
-      { name: "john", age: 32 },
-      { name: "susan", age: 21 },
+      { name: "ian", age: 25 },
+      { name: "angie", age: 26 },
     ],
   },
   plugins: [
@@ -32,9 +36,9 @@
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `1sfeg2xcbtuz`,
+        spaceId: `vvhwqwbzhdz1`,
         // Learn about environment variables: https://gatsby.dev/env-vars
-        accessToken: `1nbHjd66EXSx6nNgEdRPZzTYUbDlk_oQl9OsjlkeiWA`,
+        accessToken: process.env.accessToken,
       },
     },
     {
