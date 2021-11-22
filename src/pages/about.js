@@ -2,8 +2,9 @@ import React from 'react'
 import Layout from "../components/Layout"
 import { StaticImage } from "gatsby-plugin-image"
 import { Link, graphql } from "gatsby"
+import RecipesList from "../components/RecipesList"
 
-export default function about() {
+export default function about({ data: { allContentfulRecipe: { nodes: recipes }} }) {
     return (
         <Layout>
             <main className="page">
@@ -31,7 +32,7 @@ export default function about() {
                 </section>
                 <section className="featured-recipes">
                 <h5>Look at this Awesomesouce!</h5>
-                {/* <RecipesList recipes={recipes} /> */}
+                <RecipesList recipes={recipes} />
                 </section>
             </main>
         </Layout>
