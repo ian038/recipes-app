@@ -4,6 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { BsClockHistory, BsClock, BsPeople } from "react-icons/bs"
 import Layout from "../components/Layout"
 import slugify from "slugify"
+import SEO from "../components/SEO"
 
 export default function RecipeTemplate({ data }) {
     const { title, cookTime, content, prepTime, servings, description: { description }, image } = data.contentfulRecipe
@@ -12,10 +13,9 @@ export default function RecipeTemplate({ data }) {
 
     return (
         <Layout>
-            {/* <SEO title={title} description={description} /> */}
+            <SEO title={title} description={description} />
             <main className="page">
             <div className="recipe-page">
-                {/* hero */}
                 <section className="recipe-hero">
                 <GatsbyImage
                     image={pathToImage}
@@ -25,7 +25,6 @@ export default function RecipeTemplate({ data }) {
                 <article className="recipe-info">
                     <h2>{title}</h2>
                     <p>{description}</p>
-                    {/* icons */}
                     <div className="recipe-icons">
                     <article>
                         <BsClock />
@@ -43,12 +42,10 @@ export default function RecipeTemplate({ data }) {
                         <p>{servings} </p>
                     </article>
                     </div>
-                    {/* tags */}
                     <p className="recipe-tags">
                     Tags :
                     {tags.map((tag, index) => {
                         const slug = slugify(tag, { lower: true })
-    
                         return (
                         <Link to={`/tags/${slug}`} key={index}>
                             {tag}
@@ -58,7 +55,6 @@ export default function RecipeTemplate({ data }) {
                     </p>
                 </article>
                 </section>
-                {/* rest of the content */}
                 <section className="recipe-content">
                 <article>
                     <h4>instructions</h4>
